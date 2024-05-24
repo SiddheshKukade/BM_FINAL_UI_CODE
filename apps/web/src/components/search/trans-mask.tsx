@@ -1,31 +1,39 @@
-import { styled } from "@/stitches";
-import { cn } from "@/lib/utils.ts";
-import { Spinner } from "@/components/ui/spinner.tsx";
+// import { styled } from "@/stitches";
+// import { cn } from "@/lib/utils.ts";
+// import { Spinner } from "@/components/ui/spinner.tsx";
 import { useAtom } from "jotai";
 import {
   maskLocationAtom,
   maskOnInteractionAtom,
-} from "@/components/search/atoms.ts";
+} from "./atoms.ts";
+import { styled } from "@stitches/react";
+import { cn } from "../../lib/utils.ts";
+import { Spinner } from "../ui/spinner";
 
 const StyledSpan = styled("div", {
   position: "relative",
   top: 40,
-  color: "$gray500",
+  color: "#ababab",
   pointerEvents: "none",
   zIndex: -1,
   display: "flex",
   justifyContent: "space-between",
 });
+
 const StyledSpnnerDiv = styled("span", {
   position: "relative",
-  color: "$gray500",
+  color: "#ababab",
   pointerEvents: "none",
   zIndex: -1,
   top: 7,
 });
 
 export const TransMask = () => {
-  const [mask] = useAtom(maskOnInteractionAtom);
+  const [mask, setMask] = useAtom(maskOnInteractionAtom);
+  console.log("mask is" , mask)
+  // setMask();
+  console.log("mask is 2 "  , mask)
+
   const [location] = useAtom(maskLocationAtom);
   return (
     <StyledSpan

@@ -1,5 +1,5 @@
 import "./App.css";
-import { TransSearch } from "@/components/search/trans-search.tsx";
+import { TransSearch } from "./components/search/trans-search";
 
 function App() {
   return (

@@ -1,2 +1,2 @@
 
-export * from "@/data/cities.ts";
+export * from "./cities.ts";

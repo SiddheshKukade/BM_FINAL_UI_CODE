@@ -1,13 +1,26 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
+import { atom, useAtom } from "jotai";
+import { FormControl, FormLabel, Switch } from "@chakra-ui/react";
+import { template } from "lodash";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
-
+export const templateState = atom("INVENTORY");
+// INVENTORY
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
+const [templateMode, setTemplateMode] = useAtom(templateState)
+const handleSwitchChange = () => {
+  if(templateMode == "NORMAL"){
+    setTemplateMode("INVENTORY")
+  }else{
+    setTemplateMode("NORMAL");
+  }
+};
     return (
+      <> 
       <input
         type={type}
         className={cn(
@@ -17,6 +30,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         {...props}
       />
+   
+      </>
     );
   },
 );
